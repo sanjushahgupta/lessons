@@ -73,7 +73,6 @@ func (r *REST) CreateUser(w http.ResponseWriter, req *http.Request, ps httproute
 	respond(w, http.StatusOK, response{
 		Message: msgUserCreated(id),
 	})
-	return
 }
 
 // GetAllUser gets all user
@@ -90,7 +89,6 @@ func (r *REST) GetAllUser(w http.ResponseWriter, req *http.Request, ps httproute
 	respond(w, http.StatusOK, response{
 		Data: users,
 	})
-	return
 }
 
 // GetUser gets user
@@ -119,5 +117,4 @@ func (r *REST) GetUser(w http.ResponseWriter, req *http.Request, ps httprouter.P
 	respond(w, http.StatusOK, response{
 		Data: user,
 	})
-	return
 }

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"log"
 	"net/http"
 )
 
@@ -26,6 +27,8 @@ func respond(w http.ResponseWriter, code int, resp response) {
 	b, _ := json.Marshal(resp)
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(code)
-	w.Write(b)
-	return
+	_, err := w.Write(b)
+	if err != nil {
+		log.Println(err)
+	}
 }
